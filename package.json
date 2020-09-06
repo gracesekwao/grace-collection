@@ -1,0 +1,30 @@
+{
+  "name": "grace-collections",
+  "version": "1.0.0",
+  "description": "A repository for grace's collection of projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gracesekwao/grace-collection.git"
+  },
+  "author": "Grace Sekwao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gracesekwao/grace-collection/issues"
+  },
+  "homepage": "https://github.com/gracesekwao/grace-collection#readme",
+  "devDependencies": {
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test"
+    }
+  }
+}
