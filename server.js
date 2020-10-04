@@ -3,8 +3,10 @@
 const fastify = require('fastify')({ logger: true })
 
 const postItem = require('./handlers/postItem');
+const getAllItems = require('./handlers/getAllItems');
 
 fastify.post('/postItem', postItem);
+fastify.get('/', getAllItems);
 
 const start = async () => {
   try {
