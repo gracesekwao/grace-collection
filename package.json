@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "fastify": "^3.5.0",
+    "lodash": "^4.17.20",
     "pump": "^3.0.0"
   }
 }

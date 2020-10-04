@@ -4,9 +4,11 @@ const fastify = require('fastify')({ logger: true })
 
 const postItem = require('./handlers/postItem');
 const getAllItems = require('./handlers/getAllItems');
+const getCategories = require('./handlers/getCategories')
 
 fastify.post('/postItem', postItem);
 fastify.get('/', getAllItems);
+fastify.get('/categories', getCategories);
 
 const start = async () => {
   try {

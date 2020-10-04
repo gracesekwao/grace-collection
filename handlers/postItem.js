@@ -1,4 +1,5 @@
 'use strict';
+
 const fs = require('fs');
 const path = require('path');
 const filePath = path.join(__dirname, '/data.json');
@@ -6,6 +7,12 @@ const filePath = path.join(__dirname, '/data.json');
 const postItem = async (request, reply) => {
     const body = request.body;
     if(body) {
+        if(!body.category) {
+            reply
+            .code(400)
+            .header('Content-Type', 'application/json; charset=utf-8')
+            .send({ error: 'The category is missing' }) 
+        }
         body.publishedDate = Date.now();
         fs.readFile(filePath, (err, data) => {
             const dataItems = JSON.parse(data);

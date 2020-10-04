@@ -1,4 +1,5 @@
 'use strict';
+
 const fs = require('fs');
 const path = require('path');
 const filePath = path.join(__dirname, '/data.json');
@@ -10,8 +11,8 @@ const getAllItems = async (request, reply) => {
         .code(200)
         .header('Content-Type', 'application/json; charset=utf-8')
         .send(JSON.parse(data));
-    })
+    });
     
-}
+};
 
 module.exports = getAllItems;
