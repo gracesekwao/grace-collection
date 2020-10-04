@@ -26,5 +26,9 @@
       "pre-commit": "npm test",
       "pre-push": "npm test"
     }
+  },
+  "dependencies": {
+    "fastify": "^3.5.0",
+    "pump": "^3.0.0"
   }
 }
