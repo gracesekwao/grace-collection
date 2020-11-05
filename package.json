@@ -19,12 +19,21 @@
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4.2.5"
+    "husky": "^4.2.5",
+    "pino-pretty": "^4.3.0",
+    "tap": "^14.10.8"
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm test",
       "pre-push": "npm test"
     }
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "fastify": "^3.5.0",
+    "lodash": "^4.17.20",
+    "pino": "^6.7.0",
+    "pump": "^3.0.0"
   }
 }
