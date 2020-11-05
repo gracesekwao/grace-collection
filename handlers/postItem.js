@@ -9,7 +9,7 @@ const postItem = async (request, reply) => {
     const body = request.body;
     if(body) {
         if(!body.category) {
-            reply
+            return reply
             .code(400)
             .header('Content-Type', 'application/json; charset=utf-8')
             .send({ error: 'The category is missing' }) 
@@ -25,12 +25,12 @@ const postItem = async (request, reply) => {
                 if (err) throw err;
             });
         });
-        reply
+        return reply
         .code(200)
         .header('Content-Type', 'application/json; charset=utf-8')
         .send({ success: 'data is sent' })
     } else {
-        reply
+        return reply
         .code(400)
         .header('Content-Type', 'application/json; charset=utf-8')
         .send({ 

@@ -8,7 +8,10 @@ const filePath = path.join(__dirname, '../data/data.json');
 const getItem = async (request, reply) => {
     const itemId = _.get(request, 'params.item', '');
     if(!itemId) {
-        throw new Error('the item Id is not set')
+        reply
+            .code(400)
+            .header('Content-Type', 'application/json; charset=utf-8')
+            .send({ error: 'The item Id is missing' }) 
     }
     fs.readFile(filePath, (err, data) => {
         if(err) throw err;
