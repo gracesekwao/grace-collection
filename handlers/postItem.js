@@ -1,8 +1,9 @@
 'use strict';
 
+const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
-const filePath = path.join(__dirname, '/data.json');
+const filePath = path.join(__dirname, '../data/data.json');
 
 const postItem = async (request, reply) => {
     const body = request.body;
@@ -13,9 +14,12 @@ const postItem = async (request, reply) => {
             .header('Content-Type', 'application/json; charset=utf-8')
             .send({ error: 'The category is missing' }) 
         }
+
+        body.id = crypto.randomBytes(10).toString('base64');
         body.publishedDate = Date.now();
         fs.readFile(filePath, (err, data) => {
             const dataItems = JSON.parse(data);
+           
             dataItems.push(body);
             fs.writeFile(filePath, JSON.stringify(dataItems, null, 4), (err) => {
                 if (err) throw err;
@@ -29,7 +33,10 @@ const postItem = async (request, reply) => {
         reply
         .code(400)
         .header('Content-Type', 'application/json; charset=utf-8')
-        .send({ error: 'The payload is missing' })
+        .send({ 
+            message: 'The payload is missing',
+            status: 400
+        });
     }
 }
 

@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const filePath = path.join(__dirname, '/data.json');
+const filePath = path.join(__dirname, '../data/data.json');
 
 const getAllItems = async (request, reply) => {
     fs.readFile(filePath, (err, data) => {
